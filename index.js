@@ -68,3 +68,15 @@ function allWagesFor(empObj){
     }, 0)
     return totalWages
 }
+
+function findEmployeeByFirstName(srcArray, firstName) {
+   return srcArray.find(function(empObj){
+       return empObj.firstName === firstName
+   })
+}
+
+function calculatePayroll(srcArray){
+    return srcArray.reduce(function(memo, empObj) {
+        return memo + allWagesFor(empObj)
+    }, 0)
+}
