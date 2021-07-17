@@ -57,3 +57,14 @@ function wagesEarnedOnDate(empObj, date) {
     return wages
 }
 
+function allWagesFor(empObj){
+    //get all the clock in dates
+    let dates = empObj.timeInEvents.map(function(e){
+        return e.date
+    })
+    // return aggregate pay for all dates
+    let totalWages = dates.reduce(function(memo, date){
+        return memo + wagesEarnedOnDate(empObj, date)
+    }, 0)
+    return totalWages
+}
